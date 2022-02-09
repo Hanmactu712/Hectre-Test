@@ -1,0 +1,166 @@
+@import "~antd/dist/antd.css";
+
+* {
+  color: #333333;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.App {
+  /* text-align: center; */
+  background-color: #e5e5e5;
+  min-height: 100vh;
+
+  font-family: "Lato";
+  font-style: normal;
+}
+
+.App-logo {
+  height: 30px;
+  pointer-events: none;
+}
+
+.app-header {
+  padding-left: 30px;
+  background: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-chemical-card {
+  margin: 12px 12px 26px 12px;
+  min-height: 800px;
+}
+
+.list-chemical-card .ant-card-actions {
+  border: none;
+}
+
+.list-chemical-card .ant-card-head {
+  padding: 0 0 0 24px;
+}
+
+.chemical-list-title-name {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  /* identical to box height, or 140% */
+
+  text-transform: uppercase;
+
+  color: #333333;
+}
+
+.chemical-list-add-text {
+  color: #df1d00;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.chemical-list-table .ant-table-tbody > tr > td {
+  border: none;
+}
+
+.chemical-list-table thead {
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.chemical-list-table thead tr th::before {
+  border: none;
+  width: 0 !important;
+}
+
+.chemical-list-table .ant-table-thead tr th {
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+.chemical-list-table .ant-table-thead tr th.chemical-list-table-chemical-type-column {
+  margin-left: 100px;
+}
+
+.chemical-table-alt-row {
+  background-color: #f9f9f9;
+}
+.chemical-table-main-row {
+  background-color: #fff;
+}
+
+.chemical-list-title-total {
+  font-size: 16px;
+  line-height: 24px;
+  color: #828282;
+  margin-left: 10px;
+}
+
+.chemical-list-show-records-dropdown {
+  border-bottom: 2px solid #df1d00;
+  padding: 5px;
+}
+
+.chemical-list-show-records-dropdown-text {
+  color: #333333;
+}
+
+.chemical-list-pagination .ant-pagination-item-active {
+  border-color: #df1d00;
+  color: #df1d00;
+}
+.chemical-list-pagination .ant-pagination-item-active a {
+  color: #df1d00 !important;
+}
+
+.chemical-list-pagination .ant-pagination-item:hover {
+  border-color: #df1d00;
+}
+.chemical-list-pagination .ant-pagination-item,
+.chemical-list-pagination .ant-pagination-prev,
+.chemical-list-pagination .ant-pagination-next {
+  border-radius: 5px;
+}
+
+.chemical-list-pagination .ant-pagination-item:hover a {
+  color: #df1d00 !important;
+}
+
+.chemical-list-pagination .ant-pagination-prev:hover button,
+.chemical-list-pagination .ant-pagination-next:hover button {
+  border-color: #df1d00;
+  color: #df1d00;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
