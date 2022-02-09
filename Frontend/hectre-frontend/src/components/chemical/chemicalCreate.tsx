@@ -63,7 +63,7 @@ export const ChemicalCreate: React.FC = () => {
       ]}
     >
       <Spin spinning={isLoading}>
-        <Form layout="vertical" onFinish={onFormFinish} form={form}>
+        <Form layout="vertical" onFinish={onFormFinish} form={form} className="chemical-form">
           <Form.Item
             name="chemicalType"
             label="Chemical Type"
@@ -102,7 +102,7 @@ export const ChemicalCreate: React.FC = () => {
           </Form.Item>
           <Form.Item
             name="preHarvestIntervalInDays"
-            label="Pre Harvest Interval In Days"
+            label="PHI (Days)"
             rules={[
               {
                 required: true,

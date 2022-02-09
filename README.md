@@ -1,7 +1,8 @@
 # Hectre-Test
 
-This is test project. To run the project, it requires Docker to be installed first to host the application
-This project using:
+This is test project. To run the project, it requires Docker to be installed first.
+
+This project contains:
 
 - Persistence: MySQL
 - Back-end: .NET 5 API
