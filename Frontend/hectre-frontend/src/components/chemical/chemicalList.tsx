@@ -48,30 +48,30 @@ export const ChemicalList: React.FC = () => {
   };
 
   const onShowRecordChange = (data: any) => {
-    setCurrentPagination({ ...currentPagination, pageSize: Number.parseInt(data.key) });
+    setCurrentPagination({ ...currentPagination, pageSize: Number.parseInt(data.key), current: DEFAULT_CURRENT_PAGE });
   };
 
   useEffect(() => {
     if (currentPagination) refetch();
-  }, [currentPagination]);
+  }, [currentPagination, refetch]);
 
   return (
     <Card
       title={
-        <Row justify="space-between" wrap align="middle">
+        <Row gutter={[24, 12]} justify="space-between" wrap align="middle">
           <Col>
-            <Space>
+            <Space wrap size={[24, 12]}>
               <Typography.Text className="chemical-list-title-name">Chemicals</Typography.Text>
               <Typography.Text className="chemical-list-title-total">{`There are ${data?.total} chemicals in total`}</Typography.Text>
             </Space>
           </Col>
+          <Col flex={"auto"} style={{ textAlign: "right" }}>
+            <Button type="link" onClick={() => navigator("/create")}>
+              {/* <PlusOutlined /> */}
+              <Typography.Text className="chemical-list-add-text">{"+ Add new chemicals"}</Typography.Text>
+            </Button>
+          </Col>
         </Row>
-      }
-      extra={
-        <Button type="link" onClick={() => navigator("/create")}>
-          {/* <PlusOutlined /> */}
-          <Typography.Text className="chemical-list-add-text">{"+ Add new chemicals"}</Typography.Text>
-        </Button>
       }
       className="list-chemical-card"
       headStyle={{
@@ -79,7 +79,7 @@ export const ChemicalList: React.FC = () => {
         borderBottom: "2px solid #DF1D00",
       }}
       actions={[
-        <div style={{ float: "right", paddingRight: 24 }}>
+        <div className="chemical-list-card-action">
           <Row gutter={[36, 16]} wrap align="middle">
             <Col>
               <Pagination
@@ -95,6 +95,7 @@ export const ChemicalList: React.FC = () => {
                   </Button>
                 }
                 showLessItems={true}
+                current={currentPagination.current}
                 pageSize={currentPagination.pageSize}
                 showSizeChanger={false}
                 total={data?.total}
@@ -103,7 +104,7 @@ export const ChemicalList: React.FC = () => {
                 onChange={onPaginationChange}
               ></Pagination>
             </Col>
-            <Col>
+            <Col flex={"auto"} style={{ textAlign: "right" }}>
               <Space>
                 <span style={{ color: "#BDBDBD" }}>Show records</span>
                 <Dropdown

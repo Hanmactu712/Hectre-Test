@@ -6,13 +6,11 @@
   line-height: 24px;
 }
 
+body,
 .App {
   /* text-align: center; */
-  background-color: #e5e5e5;
+  background-color: #f8f8f8;
   min-height: 100vh;
-
-  font-family: "Lato";
-  font-style: normal;
 }
 
 .App-logo {
@@ -28,7 +26,7 @@
 
 .list-chemical-card {
   margin: 12px 12px 26px 12px;
-  min-height: 800px;
+  /* min-height: 800px; */
 }
 
 .list-chemical-card .ant-card-actions {
@@ -96,7 +94,12 @@
   font-size: 16px;
   line-height: 24px;
   color: #828282;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+}
+
+.chemical-list-card-action {
+  float: right;
+  margin: 0 26px 12px 26px;
 }
 
 .chemical-list-show-records-dropdown {

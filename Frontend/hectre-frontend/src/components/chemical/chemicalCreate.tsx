@@ -7,6 +7,7 @@ import { IChemical } from "../../interfaces";
 export const ChemicalCreate: React.FC = () => {
   const navigate = useNavigate();
   const { mutate, isLoading } = useCreateChemical<IChemical, IChemical>();
+  const [form] = Form.useForm();
 
   const onFormFinish = (data: IChemical) => {
     mutate(
@@ -29,31 +30,40 @@ export const ChemicalCreate: React.FC = () => {
   return (
     <Card
       title={
-        <Row justify="space-between" wrap align="middle">
+        <Row gutter={[24, 12]} justify="space-between" wrap align="middle">
           <Col>
-            <Space>
+            <Space wrap size={[24, 12]}>
               <Typography.Text className="chemical-list-title-name">Chemicals</Typography.Text>
               <Typography.Text className="chemical-list-title-total">Create new chemical</Typography.Text>
             </Space>
           </Col>
-          <Col></Col>
+          <Col flex={"auto"} style={{ textAlign: "right" }}>
+            <Button type="link" onClick={() => navigate("/")}>
+              <Typography.Text className="chemical-list-add-text">{"List chemicals"}</Typography.Text>
+            </Button>
+          </Col>
         </Row>
-      }
-      extra={
-        <Button type="link" onClick={() => navigate("/")}>
-          {/* <PlusOutlined /> */}
-          <Typography.Text className="chemical-list-add-text">{"List chemicals"}</Typography.Text>
-        </Button>
       }
       className="list-chemical-card"
       headStyle={{
         margin: "0 12px",
-        // padding: "20px 15px",
         borderBottom: "2px solid #DF1D00",
       }}
+      actions={[
+        <div className="chemical-list-card-action">
+          <Space style={{ float: "right" }}>
+            <Button type="default" htmlType="button" onClick={() => form.submit()} style={{ borderColor: "#df1d00" }}>
+              Submit
+            </Button>
+            <Button type="default" htmlType="button" onClick={() => navigate("/")}>
+              Cancel
+            </Button>
+          </Space>
+        </div>,
+      ]}
     >
       <Spin spinning={isLoading}>
-        <Form layout="vertical" onFinish={onFormFinish}>
+        <Form layout="vertical" onFinish={onFormFinish} form={form}>
           <Form.Item
             name="chemicalType"
             label="Chemical Type"
@@ -102,16 +112,9 @@ export const ChemicalCreate: React.FC = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item>
-            <Space style={{ float: "right" }}>
-              <Button type="default" htmlType="submit" style={{ borderColor: "#df1d00" }}>
-                Submit
-              </Button>
-              <Button type="default" htmlType="button" onClick={() => navigate("/")}>
-                Cancel
-              </Button>
-            </Space>
-          </Form.Item>
+          {/* <Form.Item>
+           
+          </Form.Item> */}
         </Form>
       </Spin>
     </Card>

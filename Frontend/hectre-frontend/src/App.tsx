@@ -9,28 +9,12 @@ const { Header, Content } = Layout;
 
 function App() {
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
     <div className="App">
       <BrowserRouter>
-        <Layout style={{ height: "100%" }}>
+        <Layout style={{ height: "100%", background: "none" }}>
           <Header className="app-header">
-            <Row justify="start">
-              <Col flex="auto" style={{ width: "100%" }}>
+            <Row justify="start" align="middle" style={{ height: "100%" }}>
+              <Col>
                 <a href="/">
                   <img src={logo} className="App-logo" alt="logo" />
                 </a>

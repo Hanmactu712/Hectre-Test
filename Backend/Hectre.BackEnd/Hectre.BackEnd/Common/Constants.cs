@@ -3,7 +3,7 @@ namespace Hectre.BackEnd.Common
 {
     public class Constants
     {
-        public const string DbSchema = "dlms_db";
+        public const string DbSchema = "hectre_db";
         public const string ASC = "asc";
         public const string DESC = "desc";
 
