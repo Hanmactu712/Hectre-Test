@@ -20,8 +20,9 @@ This project contains:
 docker-compose up
 ```
 
-4. Or run the bash file in the root folder of the project: "start_app.bat"
+4. Or run the bash file "start_app.bat" (under administrator right) in the root folder of the project.
 5. Access to the application via link: "http://localhost:3000/"
+6. To clear all docker image created while running application. Run the bat file "stop_app.bat" (under administrator right).
 
 ### If there is no docker installed, following these step to run the application
 
@@ -30,6 +31,24 @@ docker-compose up
 3. Install the MySQL server and create a database schema named: "hectre_db". Note down the corresponding connection string.
 4. Navigate to backend backend folder: ./Backend/Hectre.BackEnd/Hectre.BackEnd
 5. Looking for and ppen the appSetting.json file, update the value of ConnectionString to point the the installed mySql database above
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "ConnectionStrings": {
+    "DemoMySqlConnection": "server=localhost;uid=root;pwd=abcde12345-;database=hectre_db"
+  },
+
+  "AllowedHosts": "*"
+}
+```
+
 6. Run the following command:
 
 ```
@@ -40,6 +59,13 @@ dotnet run
 7. note down the url of the backend application, the default is "https://localhost:5001".
 8. Navigate the the front-end folder: ./Frontend/hectre-Frontend
 9. Looking for and open file: configuration.ts file following the path ./src/common/configuration.ts and update the value of key "GraphQlApiUrl" to "{{backend-url}}/graphql". for example: https://localhost:5001/graphql
+
+```
+export const Configuration = {
+  GraphQlApiUrl: "http://localhost:5000/graphql",
+};
+```
+
 10. Run the following command:
 
 ```

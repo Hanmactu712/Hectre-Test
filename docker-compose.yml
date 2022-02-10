@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.9'
 
 services:
   mysqldb:
@@ -16,6 +16,22 @@ services:
       - ./data:/var/lib/mysql
       #- ./conf/redis.conf:/etc/mysql/conf.d
       #restart: always  
+    healthcheck:
+      test:
+        [
+          "CMD",
+          'mysqladmin',
+          'ping',
+          '-h',
+          'localhost',
+          '-u',
+          'root',
+          '-p$$MYSQL_ROOT_PASSWORD'
+        ]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
   backend:
     image: hectre-backend
     build:
@@ -28,7 +44,8 @@ services:
       - "5000:80"
       - "5001:443"
     depends_on:
-      - mysqldb
+      mysqldb:
+        condition: service_healthy
   frontend:
     image: hectre-frontend
     build:
