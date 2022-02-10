@@ -5,8 +5,8 @@ This is test project. To run the project, it requires Docker to be installed fir
 This project contains:
 
 - Persistence: MySQL
-- Back-end: .NET 5 API
-- Front-end: React application
+- Back-end: .NET 5 with Graphql API
+- Front-end: React
 
 ## How to run
 
@@ -20,7 +20,7 @@ This project contains:
 docker-compose up
 ```
 
-4. Or run the bash file ***start_app.bat*** (under administrator right) in the root folder of the project.
+4. Or run the bat file ***start_app.bat*** (under administrator right) in the root folder of the project.
 5. Access to the application via link: "http://localhost:3000/".
 6. To clear all docker image created while running application. Run the bat file ***stop_app.bat*** (under administrator right).
 
@@ -56,9 +56,9 @@ dotnet restore
 dotnet run
 ```
 
-7. note down the url of the backend application, the default is "https://localhost:5001".
+7. note down the url of the backend application, the default is "https://localhost:5001" or "http://localhost:5000".
 8. Navigate the the front-end folder: ./Frontend/hectre-Frontend.
-9. Looking for and open file: configuration.ts file following the path ./src/common/configuration.ts and update the value of key ***GraphQlApiUrl*** to ***{{backend-url}}/graphql***. for example: https://localhost:5001/graphql
+9. Looking for and open file: configuration.ts file following the path ./src/common/configuration.ts and update the value of key ***GraphQlApiUrl*** to ***{{backend-url}}/graphql***. for example: https://localhost:5001/graphql or http://localhost:5000/graphql
 
 ```
 export const Configuration = {
