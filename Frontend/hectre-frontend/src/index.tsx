@@ -1,24 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      queryKey: "*",
-      staleTime: 1000 * 60,
-    },
-  },
-});
-
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
