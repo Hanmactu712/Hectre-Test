@@ -7,6 +7,7 @@ This project contains:
 - Persistence: MySQL
 - Back-end: .NET 5 with Graphql API
 - Front-end: React
+- CI: github actions
 
 ## How to run
 
@@ -49,10 +50,11 @@ docker-compose up
 }
 ```
 
-6. Run the following command:
+6. Run the following command under the folder which contains the Hectre.BackEnd.sln file.
 
 ```
 dotnet restore
+dotnet test
 dotnet run
 ```
 
@@ -70,6 +72,7 @@ export const Configuration = {
 
 ```
 npm install
+npm test
 npm start
 ```
 
