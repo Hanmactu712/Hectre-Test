@@ -1,7 +1,9 @@
 import { notification } from "antd";
+import { useContext } from "react";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
+import DataContext from "../../contexts/dataContext";
 import { HttpError, IPagination, MetaData } from "../../interfaces";
-import { dataProvider, QueryListResponse } from "../../providers";
+import { QueryListResponse } from "../../providers";
 
 export type UseListProps<TData, TError> = {
   operation: string;
@@ -18,7 +20,8 @@ export const useListChemical = <TData, TError = HttpError>({
   pagination,
   options,
 }: UseListProps<TData, TError>): UseListChemicalReturnType<TData, TError> => {
-  const { getList } = dataProvider();
+  const dataContext = useContext(DataContext);
+  const { getList } = dataContext;
 
   const queryResponse = useQuery<QueryListResponse<TData>, TError>("useListChemical", () => getList({ operation, metaData, pagination }), {
     ...options,

@@ -62,7 +62,7 @@ export const ChemicalList: React.FC = () => {
           <Col>
             <Space wrap size={[24, 12]}>
               <Typography.Text className="chemical-list-title-name">Chemicals</Typography.Text>
-              <Typography.Text className="chemical-list-title-total">{`There are ${data?.total} chemicals in total`}</Typography.Text>
+              <Typography.Text data-testid="total-item" className="chemical-list-title-total">{`There are ${data?.total} chemicals in total`}</Typography.Text>
             </Space>
           </Col>
           <Col flex={"auto"} style={{ textAlign: "right" }}>

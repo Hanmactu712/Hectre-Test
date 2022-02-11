@@ -1,7 +1,9 @@
 import { notification } from "antd";
 import Fields from "gql-query-builder/build/Fields";
+import { useContext } from "react";
 import { useMutation, UseMutationResult } from "react-query";
-import { CreateResponse, dataProvider } from "../../providers";
+import DataContext from "../../contexts/dataContext";
+import { CreateResponse } from "../../providers";
 
 export type UseCreateProps<TVariables> = {
   operation: string;
@@ -12,7 +14,8 @@ export type UseCreateProps<TVariables> = {
 export type UseCreateChemicalReturnType<TData, TVariables = {}> = UseMutationResult<CreateResponse<TData>, unknown, UseCreateProps<TVariables>, unknown>;
 
 export const useCreateChemical = <TData, TVariables = {}>(): UseCreateChemicalReturnType<TData, TVariables> => {
-  const { create } = dataProvider();
+  const dataContext = useContext(DataContext);
+  const { create } = dataContext;
 
   const queryResponse = useMutation<CreateResponse<TData>, unknown, UseCreateProps<TVariables>, unknown>(
     "useCreateChemical",

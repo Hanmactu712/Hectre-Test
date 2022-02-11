@@ -95,3 +95,5 @@ export const dataProvider = (): IDataProvider => {
     },
   };
 };
+
+export default dataProvider;
