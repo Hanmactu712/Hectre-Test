@@ -1,6 +1,6 @@
 ## Hectre-Test
 
-This is test project. To run the project, it requires Docker to be installed first.
+This is test project which is focus on ASP.NET Core. To run the project, it requires Docker to be installed first.
 
 This project contains:
 
